@@ -74,3 +74,42 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 /////////////////////////////////////////////////
+
+let arr = ["a", "b", "c", "d", "e"];
+console.log(arr.slice(2));
+console.log(arr.slice(2, 4));
+// "-" dans le slice permet de partir de la fin du tableau
+console.log(arr.slice(-2));
+console.log(arr.slice(-1));
+console.log(arr.slice(1, -2));
+
+// SPLICE
+// SPLICE extrait les éléments du vrai tableau
+
+console.log(arr.splice(2));
+// Affiche ['c', 'd', 'e']
+console.log(arr);
+// Affiche ['a', 'b']
+console.log(arr.splice(-1));
+// Affiche ['b']
+console.log(arr);
+// Afficher ['a']
+
+// REVERSE
+// Inverse le tableau et change le tableau d'origine par la meme occasion
+
+arr = ["a", "b", "c", "d", "e"];
+const arr2 = ["j", "i", "h", "g", "f"];
+console.log(arr2.reverse());
+console.log(arr2);
+
+// CONCATENER
+// Ajouter le tableau a l'autre sans modifier l'original
+
+const letters = arr.concat(arr2);
+console.log(letters);
+
+// JOIN
+// Les lie avec la méthode de liaison entre parenthese
+
+console.log(letters.join("-"));
