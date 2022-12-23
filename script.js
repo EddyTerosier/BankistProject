@@ -73,53 +73,81 @@ const currencies = new Map([
 
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
+console.log("--------FOR OF--------");
+// for of method
+
+for (const movement of movements) {
+    if (movement > 0) {
+        console.log(`Vous avez déposé ${movement}`);
+    } else {
+        console.log(`Vous avez retiré ${Math.abs(movement)}`); // .abs = valeur absolue, retire le signe "-"
+    }
+}
+
+console.log("--------FOREACH--------");
+// forEach method
+// On ne peut pas break ou continue dans le ForEach
+
+// le premier argument doit forcement etre l'élément courant, le deuxieme est l'index et le troisième est le tableau dans lequel on boucle
+movements.forEach(function (movement, index, array) {
+    movement > 0
+        ? console.log(`Transaction ${index + 1}: Vous avez déposé ${movement}`)
+        : console.log(
+              `Transaction ${index + 1}: Vous avez retiré ${Math.abs(movement)}`
+          );
+});
+
+// 0: function(200)
+// 1: function(450)
+// 2: function(-400)
+// ...
+
 /////////////////////////////////////////////////
 
-let arr = ["a", "b", "c", "d", "e"];
-console.log(arr.slice(2));
-console.log(arr.slice(2, 4));
-// "-" dans le slice permet de partir de la fin du tableau
-console.log(arr.slice(-2));
-console.log(arr.slice(-1));
-console.log(arr.slice(1, -2));
+// let arr = ["a", "b", "c", "d", "e"];
+// console.log(arr.slice(2));
+// console.log(arr.slice(2, 4));
+// // "-" dans le slice permet de partir de la fin du tableau
+// console.log(arr.slice(-2));
+// console.log(arr.slice(-1));
+// console.log(arr.slice(1, -2));
 
-// SPLICE
-// SPLICE extrait les éléments du vrai tableau
+// // SPLICE
+// // SPLICE extrait les éléments du vrai tableau
 
-console.log(arr.splice(2));
-// Affiche ['c', 'd', 'e']
-console.log(arr);
-// Affiche ['a', 'b']
-console.log(arr.splice(-1));
-// Affiche ['b']
-console.log(arr);
-// Afficher ['a']
+// console.log(arr.splice(2));
+// // Affiche ['c', 'd', 'e']
+// console.log(arr);
+// // Affiche ['a', 'b']
+// console.log(arr.splice(-1));
+// // Affiche ['b']
+// console.log(arr);
+// // Afficher ['a']
 
-// REVERSE
-// Inverse le tableau et change le tableau d'origine par la meme occasion
+// // REVERSE
+// // Inverse le tableau et change le tableau d'origine par la meme occasion
 
-arr = ["a", "b", "c", "d", "e"];
-const arr2 = ["j", "i", "h", "g", "f"];
-console.log(arr2.reverse());
-console.log(arr2);
+// arr = ["a", "b", "c", "d", "e"];
+// const arr2 = ["j", "i", "h", "g", "f"];
+// console.log(arr2.reverse());
+// console.log(arr2);
 
-// CONCATENER
-// Ajouter le tableau a l'autre sans modifier l'original
+// // CONCATENER
+// // Ajouter le tableau a l'autre sans modifier l'original
 
-const letters = arr.concat(arr2);
-console.log(letters);
+// const letters = arr.concat(arr2);
+// console.log(letters);
 
-// JOIN
-// Les lie avec la méthode de liaison entre parenthese
+// // JOIN
+// // Les lie avec la méthode de liaison entre parenthese
 
-console.log(letters.join("-"));
+// console.log(letters.join("-"));
 
+// /////////////
 
-/////////////
+// // The .at() méthod
 
-// The .at() méthod
+// const arr3 = [23,11,64]
+// console.log(arr3.at(0));
 
-const arr3 = [23,11,64]
-console.log(arr3.at(0));
-
-console.log(arr3.at(-1));
+// console.log(arr3.at(-1));
