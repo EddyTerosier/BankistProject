@@ -113,3 +113,13 @@ console.log(letters);
 // Les lie avec la méthode de liaison entre parenthese
 
 console.log(letters.join("-"));
+
+
+/////////////
+
+// The .at() méthod
+
+const arr3 = [23,11,64]
+console.log(arr3.at(0));
+
+console.log(arr3.at(-1));
