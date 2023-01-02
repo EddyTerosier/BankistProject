@@ -165,7 +165,7 @@ function checkDogs(arr) {
 
 // 1.
 
-const julia2 = julia.slice(1, 4);
+const julia2 = julia.slice(1,3);
 console.log(julia);
 console.log(julia2);
 
