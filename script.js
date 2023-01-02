@@ -129,3 +129,4 @@ const withdrawals = movements.filter(function (mov) {
 // // méthode for ofv
 // const depositFor = [];
 // for (const mov of movements ) if (mov>0) depositFor.push(mov);
+

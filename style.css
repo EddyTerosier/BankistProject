@@ -12,7 +12,7 @@ html {
 body {
   font-family: "Poppins", sans-serif;
   color: #444;
-  background-color: #f3f3f3;
+  background-image: linear-gradient(to top left, #ffd501, #f3eaea);
   height: 100vh;
   padding: 2rem;
 }
@@ -149,11 +149,11 @@ nav {
 }
 
 .movements__type--deposit {
-  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  background-image: linear-gradient(to top left, #055a7c, #05b3ca);
 }
 
 .movements__type--withdrawal {
-  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+  background-image: linear-gradient(to top left, #d16704, #f9a520);
 }
 
 .movements__value {
@@ -184,11 +184,11 @@ nav {
 
 .summary__value--in,
 .summary__value--interest {
-  color: #66c873;
+  color: #055a7c;
 }
 
 .summary__value--out {
-  color: #f5465d;
+  color: #d16704;
 }
 
 .btn--sort {
@@ -208,15 +208,15 @@ nav {
 }
 
 .operation--transfer {
-  background-image: linear-gradient(to top left, #ffb003, #ffcb03);
+  background-image: linear-gradient(to top left, #6d33ab,#8056f3 );
 }
 
 .operation--loan {
-  background-image: linear-gradient(to top left, #39b385, #9be15d);
+  background-image: linear-gradient(to top left, #006989, #01A7C2);
 }
 
 .operation--close {
-  background-image: linear-gradient(to top left, #e52a5a, #ff585f);
+  background-image: linear-gradient(to top left, #d72a55, #e1484f);
 }
 
 h2 {
@@ -289,3 +289,4 @@ h2 {
 .timer {
   font-weight: 600;
 }
+
