@@ -76,17 +76,17 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const createUsernames = function(accounts){
-    accounts.forEach(function(account){
+const createUsernames = function (accounts) {
+    accounts.forEach(function (account) {
         account.username = account.owner
-        .toLowerCase()
-        .split(" ")
-        .map((name) => name[0])
-        .join("");
-        console.log(account.username);
-    })
+            .toLowerCase()
+            .split(" ")
+            .map((name) => name[0])
+            .join("");
+    });
 };
-createUsernames(accounts);
+// createUsernames(accounts);
+
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
@@ -118,4 +118,14 @@ const movementsDescriptions = movements.map((mov, i, arr) => {
         return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
     }
 });
-console.log(movementsDescriptions);
+
+const deposits = movements.filter(function (mov) {
+    return mov > 0;
+});
+const withdrawals = movements.filter(function (mov) {
+    return mov < 0;
+});
+
+// // méthode for ofv
+// const depositFor = [];
+// for (const mov of movements ) if (mov>0) depositFor.push(mov);
