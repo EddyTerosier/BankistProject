@@ -80,6 +80,16 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+const calcPrintBalance = function (movements) {
+    const balance = movements.reduce(
+        (accumulateur, mov) => accumulateur + mov,
+        0
+    );
+    labelBalance.textContent = `${balance} EUR`;
+};
+
+calcPrintBalance(account1.movements)
+
 // Fonction qui crée des noms d'utilisateur à partir des noms de propriétaire de compte
 const createUsernames = function (accounts) {
     // Pour chaque compte, on ajoute un nouveau champ "username" qui est la première lettre de chaque mot du nom du propriétaire, tout en minuscule, et qui sont concaténées
@@ -92,6 +102,7 @@ const createUsernames = function (accounts) {
     });
 };
 // createUsernames(accounts);
+
 
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
@@ -126,7 +137,7 @@ const movementsDescriptions = movements.map((mov, i, arr) => {
         // Si c'est un dépôt
         return `Movement ${i + 1}: You deposited ${mov}`;
     }
-    // Si c'est un retrait 
+    // Si c'est un retrait
     else {
         return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
     }
@@ -142,7 +153,26 @@ const withdrawals = movements.filter(function (mov) {
     return mov < 0;
 });
 
-// // méthode for ofv
+// // méthode for of
 // const depositFor = [];
 // for (const mov of movements ) if (mov>0) depositFor.push(mov);
 
+// La méthode ".reduce" execute une fonction réductrice sur chaque élément du tableau en réduisant le tableau a une seule valeur
+// La fonction passée à reduce() prend l'accumulateur et l'élément en cours de traitement en argument
+// L'accumulateur est initialisé à la valeur passée en second argument de reduce()
+// La fonction retourne la somme de l'accumulateur et de l'élément en cours de traitement
+// Après avoir été exécutée pour chaque élément du tableau, la fonction retourne la somme de tous les éléments du tableau
+const balance = movements.reduce(function (accumulateur, current, i, arr) {
+    return accumulateur + current;
+}, 0); // 0 est la premiere valeur de l'accumulateur, il démarrera a 0 ici.
+
+// Fonction fléchée
+const balance2 = movements.reduce((accumulateur, current) => {
+    // Retourne la somme de l'accumulateur et de l'élément en cours de traitement
+    return accumulateur + current;
+}, 0); // Le second argument de reduce() est l'initialiseur de l'accumulateur, ici 0
+
+// Valeur maximum
+const max = movements.reduce((acc,mov) => {
+    acc > mov ? acc : mov
+},movements[0])
