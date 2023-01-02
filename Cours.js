@@ -159,13 +159,17 @@ const kate = [4, 1, 15, 8, 3];
 
 function checkDogs(arr) {
     bothArr.forEach(function (el, i, arr) {
-        el >= 3 ? console.log(`Dog number ${i + 1} is an adult, and is ${el} years old`): console.log(`Dog number ${i + 1} is still a puppy`);
+        el >= 3
+            ? console.log(
+                  `Dog number ${i + 1} is an adult, and is ${el} years old`
+              )
+            : console.log(`Dog number ${i + 1} is still a puppy`);
     });
 }
 
 // 1.
 
-const julia2 = julia.slice(1,3);
+const julia2 = julia.slice(1, 3);
 console.log(julia);
 console.log(julia2);
 
@@ -183,3 +187,24 @@ console.log(bothArr);
 
 // 4.
 checkDogs(bothArr);
+
+// Coding Challenge #3
+
+// DATA
+const data1 = [5, 2, 4, 1, 15, 8, 3];
+const data2 = [16, 6, 10, 5, 6, 1, 4];
+
+const calcAverageHumanAge = function(ages){
+    // 1. Calcule l'âge humain de chaque chien en utilisant la formule donnée
+    const humanAges = ages.map(age => age <= 2 ? 2 * age : 16 + (age * 4));
+    // 2. Garde uniquement les chiens âgés de 18 ans ou plus
+    const adultAges = humanAges.filter(age => age >= 18);
+    // 3. Calcule la moyenne de l'âge humain des chiens adultes
+    const averageAge = adultAges.reduce((acc, age) => acc + age, 0) / adultAges.length;
+    // Retourne la moyenne de l'âge humain des chiens adultes
+    return averageAge;
+}
+
+// Teste la fonction avec les deux jeux de données
+console.log(calcAverageHumanAge(data1));
+console.log(calcAverageHumanAge(data2));
