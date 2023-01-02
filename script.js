@@ -62,7 +62,8 @@ const inputClosePin = document.querySelector(".form__input--pin");
 const displayMovements = function (movements) {
     containerMovements.innerHTML = ""; // InnerHTML Comme SETTER ( il remplace tout le contenu par une chaine de caractere vide )
 
-    movements.forEach(function (mov, i) { // C'est comme le GETTER ( il va chercher les infos et les imbriquent )
+    movements.forEach(function (mov, i) {
+        // C'est comme le GETTER ( il va chercher les infos et les imbriquent )
         const type = mov > 0 ? "deposit" : "withdrawal";
         const html = `<div class="movements__row">
         <div class="movements__type movements__type--${type}">${type}</div>
@@ -88,3 +89,22 @@ const currencies = new Map([
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ////////////////////////////////////////////////
+
+const euroToUSD = 1.07;
+
+// Method ".map" créer un nouveau tableau avec les nouveaux éléments apportés
+const movementUSD = movements.map(function (mov) {
+    return mov * euroToUSD;
+});
+
+// Et en fonction fléchée ça donne ça
+const movementUSD2 = movements.map((mov) => mov * euroToUSD);
+
+const movementsDescriptions = movements.map((mov, i) => {
+    if (mov > 0) {
+        return `Movement ${i + 1}: You deposited ${mov}`;
+    } else {
+        return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
+    }
+});
+console.log(movementsDescriptions);
