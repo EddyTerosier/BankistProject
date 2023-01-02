@@ -3,6 +3,8 @@
 // BANKIST APP
 
 // Data
+
+// Objet représentant un compte bancaire avec son propriétaire, ses mouvements, son taux d'intérêt et son code PIN
 const account1 = {
     owner: "Jonas Schmedtmann",
     movements: [200, 450, -400, 3000, -650, -130, 70, 1300],
@@ -31,9 +33,10 @@ const account4 = {
     pin: 4444,
 };
 
+// Tableau contenant tous les comptes
 const accounts = [account1, account2, account3, account4];
 
-// Elements
+// Éléments de la page web
 const labelWelcome = document.querySelector(".welcome");
 const labelDate = document.querySelector(".date");
 const labelBalance = document.querySelector(".balance__value");
@@ -59,6 +62,7 @@ const inputLoanAmount = document.querySelector(".form__input--loan-amount");
 const inputCloseUsername = document.querySelector(".form__input--user");
 const inputClosePin = document.querySelector(".form__input--pin");
 
+// Fonction qui affiche les mouvements du compte sur la page web
 const displayMovements = function (movements) {
     containerMovements.innerHTML = ""; // InnerHTML Comme SETTER ( il remplace tout le contenu par une chaine de caractere vide )
 
@@ -76,7 +80,9 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
+// Fonction qui crée des noms d'utilisateur à partir des noms de propriétaire de compte
 const createUsernames = function (accounts) {
+    // Pour chaque compte, on ajoute un nouveau champ "username" qui est la première lettre de chaque mot du nom du propriétaire, tout en minuscule, et qui sont concaténées
     accounts.forEach(function (account) {
         account.username = account.owner
             .toLowerCase()
@@ -91,19 +97,22 @@ const createUsernames = function (accounts) {
 /////////////////////////////////////////////////
 // LECTURES
 
+// Map object qui stocke des informations sur différentes devises
 const currencies = new Map([
     ["USD", "United States dollar"],
     ["EUR", "Euro"],
     ["GBP", "Pound sterling"],
 ]);
 
+// Tableau de mouvements bancaires
 const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 
 ////////////////////////////////////////////////
 
+// Taux de conversion de l'euro en dollar
 const euroToUSD = 1.07;
 
-// Method ".map" créer un nouveau tableau avec les nouveaux éléments apportés
+// Méthode ".map" qui crée un nouveau tableau avec les mouvements du compte en dollars
 const movementUSD = movements.map(function (mov) {
     return mov * euroToUSD;
 });
@@ -111,17 +120,24 @@ const movementUSD = movements.map(function (mov) {
 // Et en fonction fléchée ça donne ça
 const movementUSD2 = movements.map((mov) => mov * euroToUSD);
 
+// Tableau avec une description de chaque mouvement du compte
 const movementsDescriptions = movements.map((mov, i, arr) => {
     if (mov > 0) {
+        // Si c'est un dépôt
         return `Movement ${i + 1}: You deposited ${mov}`;
-    } else {
+    }
+    // Si c'est un retrait 
+    else {
         return `Movement ${i + 1}: You withdrew ${Math.abs(mov)}`;
     }
 });
 
+// Tableau avec seulement les dépôts
 const deposits = movements.filter(function (mov) {
     return mov > 0;
 });
+
+// Tableau avec seulement les retraits
 const withdrawals = movements.filter(function (mov) {
     return mov < 0;
 });
@@ -129,3 +145,4 @@ const withdrawals = movements.filter(function (mov) {
 // // méthode for ofv
 // const depositFor = [];
 // for (const mov of movements ) if (mov>0) depositFor.push(mov);
+
