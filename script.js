@@ -76,15 +76,17 @@ const displayMovements = function (movements) {
 
 displayMovements(account1.movements);
 
-const user = "Steven Thomas Williams"; // stw
-const username = user
-    .toLowerCase()
-    .split(" ")
-    .map((name) => name[0])
-    .join("");
-
-console.log(username);
-
+const createUsernames = function(accounts){
+    accounts.forEach(function(account){
+        account.username = account.owner
+        .toLowerCase()
+        .split(" ")
+        .map((name) => name[0])
+        .join("");
+        console.log(account.username);
+    })
+};
+createUsernames(accounts);
 /////////////////////////////////////////////////
 /////////////////////////////////////////////////
 // LECTURES
