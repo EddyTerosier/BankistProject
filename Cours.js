@@ -151,3 +151,35 @@ const movements = [200, 450, -400, 3000, -650, -130, 70, 1300];
 // console.log(arr3.at(0));
 
 // console.log(arr3.at(-1));
+
+// Coding challenge #1
+
+const julia = [3, 5, 2, 12, 7];
+const kate = [4, 1, 15, 8, 3];
+
+function checkDogs(arr) {
+    bothArr.forEach(function (el, i, arr) {
+        el >= 3 ? console.log(`Dog number ${i + 1} is an adult, and is ${el} years old`): console.log(`Dog number ${i + 1} is still a puppy`);
+    });
+}
+
+// 1.
+
+const julia2 = julia.slice(1, 4);
+console.log(julia);
+console.log(julia2);
+
+// 2.
+
+const bothArr = julia2.concat(kate);
+console.log(bothArr);
+
+// 3.
+
+// bothArr.forEach(function (el, i, arr) {
+//     el >= 3
+//         ? console.log(`Dog number ${i + 1} is an adult, and is ${el} years old`) : console.log(`Dog number ${i + 1} is still a puppy"`);
+// });
+
+// 4.
+checkDogs(bothArr);
