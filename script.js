@@ -100,7 +100,7 @@ const movementUSD = movements.map(function (mov) {
 // Et en fonction fléchée ça donne ça
 const movementUSD2 = movements.map((mov) => mov * euroToUSD);
 
-const movementsDescriptions = movements.map((mov, i) => {
+const movementsDescriptions = movements.map((mov, i, arr) => {
     if (mov > 0) {
         return `Movement ${i + 1}: You deposited ${mov}`;
     } else {
